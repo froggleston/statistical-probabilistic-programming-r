@@ -134,6 +134,14 @@ jobs:
         with:
           token: ${{ steps.set-pat.outputs.pat || secrets.SANDPAPER_WORKFLOW }}
 
+      - name: "Debug check output"
+        id: output-debug
+        shell: bash
+        run: |
+          echo "N : ${{ steps.update.outputs.n }}"
+          echo "WF: ${{ steps.validate-token.outputs.wf }}"
+          echo "VA: ${{ steps.validate-org-workflow.outputs.is_valid }}"
+
       # Create the PR with the following roles in order of preference:
       # - Carpentries Bot classic PAT fetched from AWS (will only work in official Carpentries repos)
       # - repo-scoped SANDPAPER_WORKFLOW classic PAT (will work in all scenarios)
