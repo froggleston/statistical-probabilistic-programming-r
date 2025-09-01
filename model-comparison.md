@@ -450,7 +450,7 @@ paste0("Effective number of parameters, cauchy = ", p_loo_cv_cauchy)
 ```
 
 ``` output
-[1] "Effective number of parameters, cauchy = 0.79387837262459"
+[1] "Effective number of parameters, cauchy = 0.79558929486484"
 ```
 
 

@@ -738,16 +738,16 @@ Formula: r2 ~ Anger + Gender + btype + situ + (1 | id)
 Multilevel Hyperparameters:
 ~id (Number of levels: 316) 
               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)     1.30      0.07     1.17     1.43 1.00     1086     1687
+sd(Intercept)     1.30      0.07     1.18     1.44 1.00     1063     1729
 
 Regression Coefficients:
            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept      0.21      0.34    -0.49     0.87 1.01      637     1035
-Anger          0.05      0.02     0.02     0.09 1.01      664     1026
-GenderM        0.31      0.19    -0.05     0.68 1.00      580     1257
-btypescold    -1.03      0.07    -1.17    -0.90 1.00     4963     3254
-btypeshout    -2.00      0.07    -2.14    -1.85 1.00     4867     3286
-situself      -1.01      0.06    -1.12    -0.89 1.00     5877     3022
+Intercept      0.19      0.33    -0.44     0.86 1.00      742     1386
+Anger          0.06      0.02     0.02     0.09 1.00      723     1520
+GenderM        0.32      0.19    -0.05     0.69 1.01      571     1075
+btypescold    -1.03      0.07    -1.17    -0.90 1.00     3699     2930
+btypeshout    -2.00      0.07    -2.14    -1.86 1.00     3502     3186
+situself      -1.01      0.06    -1.12    -0.90 1.00     4607     3294
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -799,20 +799,20 @@ Formula: r2 ~ Anger + Gender + btype + situ + (1 | id) + (1 | item)
 Multilevel Hyperparameters:
 ~id (Number of levels: 316) 
               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)     1.36      0.07     1.23     1.51 1.00     1347     1922
+sd(Intercept)     1.36      0.07     1.23     1.51 1.00     1131     2099
 
 ~item (Number of levels: 24) 
               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)     0.59      0.11     0.42     0.84 1.00     1404     2252
+sd(Intercept)     0.59      0.11     0.41     0.83 1.00     1558     2042
 
 Regression Coefficients:
            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept      0.18      0.44    -0.65     1.05 1.01      831     1522
-Anger          0.06      0.02     0.02     0.09 1.00      801     1568
-GenderM        0.32      0.20    -0.07     0.72 1.00      847     1333
-btypescold    -1.06      0.30    -1.63    -0.43 1.00     1191     1561
-btypeshout    -2.11      0.30    -2.71    -1.52 1.00     1284     1889
-situself      -1.05      0.25    -1.54    -0.55 1.00     1156     1828
+Intercept      0.18      0.45    -0.70     1.03 1.00      955     1744
+Anger          0.06      0.02     0.02     0.09 1.00      910     1443
+GenderM        0.33      0.19    -0.04     0.69 1.00      956     1660
+btypescold    -1.05      0.31    -1.65    -0.42 1.00     1170     1604
+btypeshout    -2.10      0.30    -2.71    -1.52 1.00     1275     1870
+situself      -1.05      0.26    -1.56    -0.54 1.00     1320     1915
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -835,12 +835,12 @@ Output of model 'fit_hier':
 Computed from 4000 by 7584 log-likelihood matrix.
 
          Estimate   SE
-elpd_loo  -4004.9 42.9
-p_loo       268.0  3.7
-looic      8009.7 85.8
+elpd_loo  -4004.2 42.9
+p_loo       267.6  3.7
+looic      8008.4 85.8
 ------
 MCSE of elpd_loo is 0.2.
-MCSE and ESS estimates assume MCMC draws (r_eff in [1.1, 2.2]).
+MCSE and ESS estimates assume MCMC draws (r_eff in [1.0, 2.0]).
 
 All Pareto k estimates are good (k < 0.7).
 See help('pareto-k-diagnostic') for details.
@@ -850,12 +850,12 @@ Output of model 'fit_hier2':
 Computed from 4000 by 7584 log-likelihood matrix.
 
          Estimate   SE
-elpd_loo  -3866.9 43.9
-p_loo       287.0  4.1
-looic      7733.8 87.8
+elpd_loo  -3867.4 43.9
+p_loo       287.5  4.1
+looic      7734.9 87.8
 ------
 MCSE of elpd_loo is 0.2.
-MCSE and ESS estimates assume MCMC draws (r_eff in [1.1, 2.6]).
+MCSE and ESS estimates assume MCMC draws (r_eff in [1.2, 3.1]).
 
 All Pareto k estimates are good (k < 0.7).
 See help('pareto-k-diagnostic') for details.
@@ -863,7 +863,7 @@ See help('pareto-k-diagnostic') for details.
 Model comparisons:
           elpd_diff se_diff
 fit_hier2    0.0       0.0 
-fit_hier  -138.0      16.2 
+fit_hier  -136.8      16.1 
 ```
 
 Based on the output, the second model provides a superior fit compared to the first model.
