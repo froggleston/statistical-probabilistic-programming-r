@@ -71,7 +71,7 @@ $$
 Below, we'll plot these functions. Likelihood (which is not a distribution!) has been normalized for better illustration. 
 
 
-<img src="fig/bayesian-statistics-rendered-unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="fig/bayesian-statistics-rendered-unnamed-chunk-2-1.png" alt="" width="100%" style="display: block; margin: auto;" />
 
 
 The figure shows that the majority of the mass in the posterior distribution is concentrated between 0 and 0.25. This implies that, given the available data and prior distribution, the model is fairly confident that the value of $\theta$ is between these values. The peak of the posterior is at approximately 0.1 representing the most likely value. This aligns well with intuitive expectations about left-handedness in humans. 
@@ -98,7 +98,7 @@ Two specific types of posterior intervals are often of interest:
 
 The following figures illustrate selected posterior intervals for the previous example along with the posterior mode, or *maximum a posteriori* (MAP) estimate. 
 
-<img src="fig/bayesian-statistics-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+<img src="fig/bayesian-statistics-rendered-unnamed-chunk-3-1.png" alt="" style="display: block; margin: auto;" />
 
 
 ## Grid approximation
@@ -173,7 +173,7 @@ p1 <- ggplot(df1_l,
 p1
 ```
 
-<img src="fig/bayesian-statistics-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="fig/bayesian-statistics-rendered-unnamed-chunk-7-1.png" alt="" style="display: block; margin: auto;" />
 
 
 The points in the figure represent the values of the functions computed at the grid locations. The lines depict linear interpolations between these points. 
@@ -325,7 +325,7 @@ p_joint_posterior <- df2 %>%
 p_joint_posterior
 ```
 
-<img src="fig/bayesian-statistics-rendered-unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="fig/bayesian-statistics-rendered-unnamed-chunk-13-1.png" alt="" width="100%" style="display: block; margin: auto;" />
 
 
 Next, we'll compute the posterior mode, which is a point in the 2-dimensional parameter space. 
@@ -363,7 +363,7 @@ p_alpha_posterior <- alpha_posterior %>%
 p_alpha_posterior
 ```
 
-<img src="fig/bayesian-statistics-rendered-unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="fig/bayesian-statistics-rendered-unnamed-chunk-15-1.png" alt="" width="100%" style="display: block; margin: auto;" />
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::: challenge
@@ -410,7 +410,7 @@ ggplot() +
   labs(x = expression(theta))
 ```
 
-<img src="fig/bayesian-statistics-rendered-unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="fig/bayesian-statistics-rendered-unnamed-chunk-17-1.png" alt="" width="100%" style="display: block; margin: auto;" />
 
 
 
@@ -446,7 +446,7 @@ ggplot() +
   geom_vline(xintercept = 7, color = "red")
 ```
 
-<img src="fig/bayesian-statistics-rendered-unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
+<img src="fig/bayesian-statistics-rendered-unnamed-chunk-19-1.png" alt="" style="display: block; margin: auto;" />
 
 
 

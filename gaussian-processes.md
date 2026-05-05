@@ -76,7 +76,7 @@ gp_sample_p <- ggplot(data = gp_samples_l) +
 print(gp_sample_p)
 ```
 
-<img src="fig/gaussian-processes-rendered-unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+<img src="fig/gaussian-processes-rendered-unnamed-chunk-2-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::: challenge
 1. Generate samples from the GP above with different values of $\alpha$ and $\lambda$ to get intuition about the role of these hyperparameters.
@@ -105,7 +105,7 @@ p_data <- df6 %>%
 p_data
 ```
 
-<img src="fig/gaussian-processes-rendered-unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
+<img src="fig/gaussian-processes-rendered-unnamed-chunk-3-1.png" alt="" style="display: block; margin: auto;" />
 
 We'll assume $y$ are noisy observations from some unknown function $f(x)$ for which we'll give a GP prior. Because we will not recover any functional (such as polynomial) form for $f$, we will only learn the value of $f$ at separate predetermined locations $x$. The covariance function needs to be computed in all those points. Let's estimate $f$ on a grid of points spanning the interval (-5, 5), stored in vector `x_pred`:
 
@@ -196,8 +196,8 @@ gp_samples <- rstan::sampling(gp_model,
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 8.7e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.87 seconds.
+Chain 1: Gradient evaluation took 8.8e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.88 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -214,9 +214,9 @@ Chain 1: Iteration: 800 / 1000 [ 80%]  (Sampling)
 Chain 1: Iteration: 900 / 1000 [ 90%]  (Sampling)
 Chain 1: Iteration: 1000 / 1000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 31.007 seconds (Warm-up)
-Chain 1:                35.248 seconds (Sampling)
-Chain 1:                66.255 seconds (Total)
+Chain 1:  Elapsed Time: 31.997 seconds (Warm-up)
+Chain 1:                36.296 seconds (Sampling)
+Chain 1:                68.293 seconds (Total)
 Chain 1: 
 ```
 
@@ -271,7 +271,7 @@ p_f <- ggplot() +
 print(p_f)
 ```
 
-<img src="fig/gaussian-processes-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="fig/gaussian-processes-rendered-unnamed-chunk-7-1.png" alt="" style="display: block; margin: auto;" />
 
 
 The figure contains the data points in red and samples from the posterior distribution of $f$ in black. Each posterior sample corresponds to a function. This distribution essentially captures the model's interpretation of the underlying trend within the data. The estimate for the trend seems plausible. 
@@ -388,7 +388,7 @@ p_cholesky_f <- ggplot() +
 print(p_cholesky_f)
 ```
 
-<img src="fig/gaussian-processes-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="fig/gaussian-processes-rendered-unnamed-chunk-10-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::: challenge
 
@@ -442,7 +442,7 @@ p <- insect %>%
 print(p)
 ```
 
-<img src="fig/gaussian-processes-rendered-unnamed-chunk-13-1.png" style="display: block; margin: auto;" />
+<img src="fig/gaussian-processes-rendered-unnamed-chunk-13-1.png" alt="" style="display: block; margin: auto;" />
 
 
 One way of modeling presence/absence data is with logistic regression:
@@ -556,7 +556,7 @@ p_theta <-
 p_theta
 ```
 
-<img src="fig/gaussian-processes-rendered-unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="fig/gaussian-processes-rendered-unnamed-chunk-16-1.png" alt="" style="display: block; margin: auto;" />
 
 ::::::::::::::::::::::::::::::::::: challenge
 Think of ways to modify the Stan program for the logistic GP regression so that the posterior behavior is more reasonable in the prediction range.
@@ -639,8 +639,8 @@ logistic_gp_fit2 <- rstan::sampling(logistic_gp_model2,
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 0.00117 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 11.7 seconds.
+Chain 1: Gradient evaluation took 0.001206 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 12.06 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -657,9 +657,9 @@ Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 15.388 seconds (Warm-up)
-Chain 1:                15.452 seconds (Sampling)
-Chain 1:                30.84 seconds (Total)
+Chain 1:  Elapsed Time: 15.628 seconds (Warm-up)
+Chain 1:                15.664 seconds (Sampling)
+Chain 1:                31.292 seconds (Total)
 Chain 1: 
 ```
 
@@ -682,7 +682,7 @@ p_theta2 <-
 p_theta2
 ```
 
-<img src="fig/gaussian-processes-rendered-unnamed-chunk-18-1.png" style="display: block; margin: auto;" />
+<img src="fig/gaussian-processes-rendered-unnamed-chunk-18-1.png" alt="" style="display: block; margin: auto;" />
 
 
 ::::::::::::::::::::::::::

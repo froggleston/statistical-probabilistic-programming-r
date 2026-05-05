@@ -227,7 +227,7 @@ p_MH1 <- p_grid +
 print(p_MH1)
 ```
 
-<img src="fig/mcmc-rendered-unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="fig/mcmc-rendered-unnamed-chunk-6-1.png" alt="" style="display: block; margin: auto;" />
 
 
 Looking at the figure, a few observations become evident. Firstly, despite the chosen initial value being moderately far from the high-density areas of the posterior, the algorithm quickly converges to the target region. This rapid convergence is due to the fact that proposals toward higher density areas are favored, in fact they are always accepted when using normal density proposals. However, it's important to note that such swift convergence is not guaranteed in all scenarios. In cases with a high number of model parameters, there's an increased likelihood of the sampler taking 'wrong' directions. The samples before convergence introduce bias to the posterior approximation.
@@ -342,7 +342,7 @@ p_joint_2 <- ggplot() +
 print(p_joint_2)
 ```
 
-<img src="fig/mcmc-rendered-unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+<img src="fig/mcmc-rendered-unnamed-chunk-8-1.png" alt="" style="display: block; margin: auto;" />
 
 
 
@@ -375,7 +375,7 @@ p_trace_2 <- ggplot() +
 print(p_trace_2)
 ```
 
-<img src="fig/mcmc-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="fig/mcmc-rendered-unnamed-chunk-10-1.png" alt="" style="display: block; margin: auto;" />
 
 
 

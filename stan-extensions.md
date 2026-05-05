@@ -151,7 +151,7 @@ MCSE and ESS estimates assume MCMC draws (r_eff in [0.8, 0.9]).
 
 Pareto k diagnostic values:
                          Count Pct.    Min. ESS
-(-Inf, 0.7]   (good)     87    98.9%   2167    
+(-Inf, 0.7]   (good)     87    98.9%   2177    
    (0.7, 1]   (bad)       0     0.0%   <NA>    
    (1, Inf)   (very bad)  1     1.1%   <NA>    
 See help('pareto-k-diagnostic') for details.
@@ -288,7 +288,7 @@ cauchy_draws <- as.array(cauchy_fit)
 bayesplot::mcmc_intervals(cauchy_draws, pars = c("mu", "sigma"))
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-extensions-rendered-unnamed-chunk-10-1.png" alt="" style="display: block; margin: auto;" />
 
 Alternatively, we can plot the (marginal) posterior sample histograms or densities with credible intervals as shaded areas as follows:
 
@@ -300,14 +300,14 @@ bayesplot::mcmc_areas(cauchy_draws, pars = c("mu", "sigma"),
                       point_est = "mean")
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-extensions-rendered-unnamed-chunk-11-1.png" alt="" style="display: block; margin: auto;" />
 
 ``` r
 # Plotting histogram
 bayesplot::mcmc_hist(cauchy_draws, pars = c("mu", "sigma"))
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-11-2.png" style="display: block; margin: auto;" />
+<img src="fig/stan-extensions-rendered-unnamed-chunk-11-2.png" alt="" style="display: block; margin: auto;" />
 
 `bayesplot` also provides functions for assessing MCMC convergence and visualizing fit diagnostics. For example, we can generate trace plots for the chains:
 
@@ -318,7 +318,7 @@ bayesplot::mcmc_trace(cauchy_draws, pars = c("mu", "sigma"),
                       facet_args = list(ncol = 1))
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-extensions-rendered-unnamed-chunk-12-1.png" alt="" style="display: block; margin: auto;" />
 
 
 
@@ -354,7 +354,7 @@ X_rep_sub <- X_rep_sub[, -89] %>%
 bayesplot::ppc_dens_overlay(y = df5$X, yrep = X_rep_sub) + xlim(-25, 50)
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-14-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-extensions-rendered-unnamed-chunk-14-1.png" alt="" style="display: block; margin: auto;" />
 
 
 ``` r
@@ -362,7 +362,7 @@ bayesplot::ppc_dens_overlay(y = df5$X, yrep = X_rep_sub) + xlim(-25, 50)
 bayesplot::ppc_hist(y = df5$X, yrep = X_rep_sub) + xlim(-25,50)
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-extensions-rendered-unnamed-chunk-15-1.png" alt="" style="display: block; margin: auto;" />
 
 
 ::::::::::::::::::::::::::::::::::::::::
@@ -492,7 +492,7 @@ bayesplot::mcmc_intervals(fit_cox,
                           transform = "exp")
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-18-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-extensions-rendered-unnamed-chunk-18-1.png" alt="" style="display: block; margin: auto;" />
 
 Based on the estimates, it seems that age has only a minor effect on the hazard. Female sex and being "high" in `ph.karno` imply smaller hazards, meaning that these factors are protective. 
 
@@ -506,19 +506,19 @@ brms::get_prior(fit_cox)
 
 ``` output
                   prior     class                coef group resp dpar nlpar lb
-          normal(0, 10)         b                                             
-          normal(0, 10)         b                 age                         
-          normal(0, 10)         b ph.karno_statushigh                         
-          normal(0, 10)         b                 sex                         
+                 (flat)         b                                             
+                 (flat)         b                 age                         
+                 (flat)         b ph.karno_statushigh                         
+                 (flat)         b                 sex                         
  student_t(3, 5.6, 2.5) Intercept                                             
            dirichlet(1)     sbhaz                                             
- ub       source
-            user
-    (vectorized)
-    (vectorized)
-    (vectorized)
-         default
-         default
+ ub tag       source
+             default
+        (vectorized)
+        (vectorized)
+        (vectorized)
+             default
+             default
 ```
 
 The population-level effects have the normal prior we specified. In `brms`, the default prior for the intercept is Student's t-distribution with three degrees of freedom. The Stan program `brms` ran under the hood can be printed with the `brms::stancode` function.
@@ -530,7 +530,7 @@ brms::stancode(fit_cox)
 ```
 
 ``` output
-// generated with brms 2.22.0
+// generated with brms 2.23.0
 functions {
   /* distribution functions of the Cox proportional hazards model
    * parameterize hazard(t) = baseline(t) * mu
@@ -655,7 +655,8 @@ parameters {
   simplex[Kbhaz] sbhaz;
 }
 transformed parameters {
-  real lprior = 0;  // prior contributions to the log posterior
+  // prior contributions to the log posterior
+  real lprior = 0;
   lprior += normal_lpdf(b | 0, 10);
   lprior += student_t_lpdf(Intercept | 3, 5.6, 2.5);
   lprior += dirichlet_lpdf(sbhaz | con_sbhaz);
@@ -760,10 +761,43 @@ The conditional effects of the predictors can easily be plotted with the functio
 ``` r
 # Conditional effects
 plots <- plot(conditional_effects(fit_hier), plot = FALSE)
+```
+
+``` output
+Ignoring unknown labels:
+• fill : "NA"
+• colour : "NA"
+Ignoring unknown labels:
+• fill : "NA"
+• colour : "NA"
+Ignoring unknown labels:
+• fill : "NA"
+• colour : "NA"
+Ignoring unknown labels:
+• fill : "NA"
+• colour : "NA"
+```
+
+``` r
 cowplot::plot_grid(plots[[1]], plots[[2]], plots[[3]], plots[[4]])
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-23-1.png" style="display: block; margin: auto;" />
+``` output
+Ignoring unknown labels:
+• fill : "NA"
+• colour : "NA"
+Ignoring unknown labels:
+• fill : "NA"
+• colour : "NA"
+Ignoring unknown labels:
+• fill : "NA"
+• colour : "NA"
+Ignoring unknown labels:
+• fill : "NA"
+• colour : "NA"
+```
+
+<img src="fig/stan-extensions-rendered-unnamed-chunk-23-1.png" alt="" style="display: block; margin: auto;" />
 
 The function can also plot variable interactions. Let's plot the conditional effect for interaction between Anger and btype.
 
@@ -773,7 +807,7 @@ The function can also plot variable interactions. Let's plot the conditional eff
 plot(conditional_effects(fit_hier, effects = "Anger:btype"))
 ```
 
-<img src="fig/stan-extensions-rendered-unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-extensions-rendered-unnamed-chunk-24-1.png" alt="" style="display: block; margin: auto;" />
 
 
 
@@ -855,7 +889,7 @@ p_loo       287.5  4.1
 looic      7734.9 87.8
 ------
 MCSE of elpd_loo is 0.2.
-MCSE and ESS estimates assume MCMC draws (r_eff in [1.2, 3.1]).
+MCSE and ESS estimates assume MCMC draws (r_eff in [1.2, 3.2]).
 
 All Pareto k estimates are good (k < 0.7).
 See help('pareto-k-diagnostic') for details.

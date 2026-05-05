@@ -156,7 +156,7 @@ height_sim %>%
     labs(title = "Simulated data")
 ```
 
-<img src="fig/hierarchical-models-rendered-unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
+<img src="fig/hierarchical-models-rendered-unnamed-chunk-6-1.png" alt="" style="display: block; margin: auto;" />
 
 ### Modeling
 
@@ -342,7 +342,7 @@ facet_wrap(~ par, scales = "free", ncol = 1) +
 coord_flip() 
 ```
 
-<img src="fig/hierarchical-models-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="fig/hierarchical-models-rendered-unnamed-chunk-11-1.png" alt="" style="display: block; margin: auto;" />
 
 Above, the black points represent the true values, and the intervals are the 95% CIs for a hierarchical and non-hierarchical models, respectively. As apparent, the CIs from the hierarchical model are more concentrated and better capture the true values. 
 
@@ -385,7 +385,7 @@ ggplot() +
   facet_wrap(~hyperpar, scales = "free")
 ```
 
-<img src="fig/hierarchical-models-rendered-unnamed-chunk-12-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="fig/hierarchical-models-rendered-unnamed-chunk-12-1.png" alt="" width="100%" style="display: block; margin: auto;" />
 
 ### Population distributions 
 
@@ -416,7 +416,7 @@ ggplot() +
   labs(title = "Blue = posterior; black = sample")
 ```
 
-<img src="fig/hierarchical-models-rendered-unnamed-chunk-13-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="fig/hierarchical-models-rendered-unnamed-chunk-13-1.png" alt="" width="100%" style="display: block; margin: auto;" />
 We can see that the population distribution is able to capture the measured average heights and standard deviations relatively well, although the within-country variation is estimated to be too concentrated. However, remember that these estimates are based on a limited sample: 10 out of 200 countries with 10 individuals in each group. 
 
 ### Posterior predictive distribution
@@ -462,7 +462,7 @@ ggplot() +
                  bins = 100)
 ```
 
-<img src="fig/hierarchical-models-rendered-unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
+<img src="fig/hierarchical-models-rendered-unnamed-chunk-15-1.png" alt="" style="display: block; margin: auto;" />
 
 
 

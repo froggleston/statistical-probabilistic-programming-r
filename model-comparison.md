@@ -39,7 +39,7 @@ Looking at the data histogram, it's evident that the data is approximately symme
 
 
 
-<img src="fig/model-comparison-rendered-unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+<img src="fig/model-comparison-rendered-unnamed-chunk-2-1.png" alt="" style="display: block; margin: auto;" />
 
 
 ## Posterior predictive check
@@ -112,7 +112,7 @@ X_rep <- rstan::extract(normal_fit, "X_rep")[[1]] %>%
 
 Below is a comparison of 9 realizations of $X^{rep}$ (blue) against the data (grey; the panel titles correspond to MCMC sample numbers). It is evident that the tail properties are different between  $X^{rep}$ and $X$, and this discrepancy indicates an issue with the model choice. 
 
-<img src="fig/model-comparison-rendered-unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+<img src="fig/model-comparison-rendered-unnamed-chunk-5-1.png" alt="" style="display: block; margin: auto;" />
 
 
 
@@ -126,7 +126,7 @@ This means that the chosen statistic $T$ is at least as large as in the data in 
 The following histogram displays $T(X) = \max(X)$ (vertical line) against the distribution of $T(X^{rep})$.
 
 
-<img src="fig/model-comparison-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="fig/model-comparison-rendered-unnamed-chunk-7-1.png" alt="" style="display: block; margin: auto;" />
 
 
 
@@ -167,12 +167,12 @@ generated quantities {
 
 A comparison of data $X$ and $X^{rep}$ from the Cauchy model shows good agreement between the posterior predictions and the data. The distributions appear to closely match around 0, and the replicates contain some extreme values similarly to the data.
 
-<img src="fig/model-comparison-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="fig/model-comparison-rendered-unnamed-chunk-9-1.png" alt="" style="display: block; margin: auto;" />
 
 
 The maximum value observed in the data is similar to those from replicate sets. Additionally, $p_B=$ 0, indicating no issues with the suitability of the model for the data.     distribution.
 
-<img src="fig/model-comparison-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+<img src="fig/model-comparison-rendered-unnamed-chunk-10-1.png" alt="" style="display: block; margin: auto;" />
 
 
 

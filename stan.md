@@ -226,7 +226,7 @@ post-warmup draws per chain=1000, total post-warmup draws=4000.
 theta   0.15    0.00 0.05   0.07   0.12   0.15   0.18   0.26  1570    1
 lp__  -22.79    0.02 0.69 -24.74 -22.91 -22.53 -22.37 -22.33  2051    1
 
-Samples were drawn using NUTS(diag_e) at Mon Sep  1 20:37:29 2025.
+Samples were drawn using NUTS(diag_e) at Tue May  5 00:44:09 2026.
 For each parameter, n_eff is a crude measure of effective sample size,
 and Rhat is the potential scale reduction factor on split chains (at 
 convergence, Rhat=1).
@@ -266,7 +266,7 @@ p <- ggplot(data = data.frame(theta = theta_samples)) +
 print(p)
 ```
 
-<img src="fig/stan-rendered-unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-rendered-unnamed-chunk-7-1.png" alt="" style="display: block; margin: auto;" />
 
 
 ::::::::::::::::::::::::::::::
@@ -386,8 +386,8 @@ Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
 Chain 1:  Elapsed Time: 0.008 seconds (Warm-up)
-Chain 1:                0.006 seconds (Sampling)
-Chain 1:                0.014 seconds (Total)
+Chain 1:                0.007 seconds (Sampling)
+Chain 1:                0.015 seconds (Total)
 Chain 1: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
@@ -410,9 +410,9 @@ Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 0.008 seconds (Warm-up)
+Chain 2:  Elapsed Time: 0.009 seconds (Warm-up)
 Chain 2:                0.007 seconds (Sampling)
-Chain 2:                0.015 seconds (Total)
+Chain 2:                0.016 seconds (Total)
 Chain 2: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
@@ -436,8 +436,8 @@ Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 3: 
 Chain 3:  Elapsed Time: 0.008 seconds (Warm-up)
-Chain 3:                0.006 seconds (Sampling)
-Chain 3:                0.014 seconds (Total)
+Chain 3:                0.007 seconds (Sampling)
+Chain 3:                0.015 seconds (Total)
 Chain 3: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
@@ -497,7 +497,7 @@ p <- cowplot::plot_grid(p_posterior, p_marginals,
 print(p)
 ```
 
-<img src="fig/stan-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-rendered-unnamed-chunk-11-1.png" alt="" style="display: block; margin: auto;" />
 
 
 Let's also plot the posterior predictive distribution samples histogram and compare it to that of the data. 
@@ -517,7 +517,7 @@ p_PPD <- ggplot() +
 print(p_PPD)
 ```
 
-<img src="fig/stan-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
+<img src="fig/stan-rendered-unnamed-chunk-12-1.png" alt="" style="display: block; margin: auto;" />
 
 
 

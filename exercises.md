@@ -532,16 +532,13 @@ install.packages(AER)
 ```
 
 ``` error
-Error in eval(call, envir = parent.frame()): object 'AER' not found
+Error:
+! object 'AER' not found
 ```
 
 ``` r
 # Get data
 data("DoctorVisits", package = "AER")
-```
-
-``` error
-Error in find.package(package, lib.loc, verbose = verbose): there is no package called 'AER'
 ```
 
 a)
