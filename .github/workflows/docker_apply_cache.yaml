@@ -89,7 +89,13 @@ jobs:
     needs: check-renv
     if: |
       needs.check-renv.outputs.renv-needed == 'true' &&
-      needs.check-renv.outputs.renv-cache-available != 'true' &&
+      (
+        needs.check-renv.outputs.renv-cache-available != 'true' ||
+        (
+          needs.check-renv.outputs.renv-cache-available == 'true' &&
+          github.event.inputs.force-s3-cache-delete == 'true'
+        )
+      ) &&
       (
         github.event_name == 'workflow_dispatch' ||
         (
