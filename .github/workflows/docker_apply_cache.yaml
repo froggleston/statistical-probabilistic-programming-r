@@ -7,11 +7,18 @@ on:
         description: 'Who triggered this build?'
         required: true
         default: 'Maintainer (via GitHub)'
+      force-s3-cache-delete:
+        description: 'Force delete existing S3 cache object?'
+        required: false
+        default: false
+        type: boolean
   pull_request:
     types:
       - closed
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * 3' # every Wednesday at midnight UTC
 
 # queue cache runs
 concurrency:
@@ -193,9 +200,26 @@ jobs:
           aws-region: ${{ env.aws-region }}
           output-credentials: true
 
+      - name: "Force delete cache if input set"
+        id: force-delete-cache
+        env:
+          AWS_S3_BUCKET: workbench-docker-caches
+          AWS_ACCESS_KEY_ID: ${{ steps.aws-creds.outputs.aws-access-key-id }}
+          AWS_SECRET_ACCESS_KEY: ${{ steps.aws-creds.outputs.aws-secret-access-key }}
+          AWS_REGION: ${{ secrets.AWS_GH_OIDC_REGION }}
+          PATH_TO_DELETE: ${{ github.repository }}/${{ steps.wb-vers.outputs.container-version }}_renv-${{ needs.check-renv.outputs.renv-cache-hashsum }}
+        if: |
+          steps.validate-org-workflow.outputs.is_valid == 'true' &&
+          env.role-to-assume != '' &&
+          env.aws-region != '' &&
+          github.event.inputs.force-s3-cache-delete == 'true'
+        uses: vitorsgomes/s3-rm-action@master
+        with:
+          args: --recursive
+
       - name: "Upload cache object to S3"
         id: upload-cache
-        uses: tespkg/actions-cache@v1.10.0
+        uses: tespkg/actions-cache/save@v1.10.0
         with:
           accessKey: ${{ steps.aws-creds.outputs.aws-access-key-id }}
           secretKey: ${{ steps.aws-creds.outputs.aws-secret-access-key }}
@@ -205,8 +229,6 @@ jobs:
             /home/rstudio/lesson/renv
             /usr/local/lib/R/site-library
           key: ${{ github.repository }}/${{ steps.wb-vers.outputs.container-version }}_renv-${{ needs.check-renv.outputs.renv-cache-hashsum }}
-          restore-keys:
-            ${{ github.repository }}/${{ steps.wb-vers.outputs.container-version }}_renv-
 
   record-cache-result:
     name: "Record Caching Status"
