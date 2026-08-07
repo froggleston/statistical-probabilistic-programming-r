@@ -216,8 +216,7 @@ jobs:
           PATH_TO_DELETE: ${{ github.repository }}/${{ steps.wb-vers.outputs.container-version }}_renv-${{ needs.check-renv.outputs.renv-cache-hashsum }}
         if: |
           steps.validate-org-workflow.outputs.is_valid == 'true' &&
-          env.role-to-assume != '' &&
-          env.aws-region != '' &&
+          steps.aws-creds.outcome == 'success' &&
           github.event.inputs.force-s3-cache-delete == 'true'
         uses: vitorsgomes/s3-rm-action@master
         with:
