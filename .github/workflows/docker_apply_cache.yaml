@@ -218,9 +218,13 @@ jobs:
           steps.validate-org-workflow.outputs.is_valid == 'true' &&
           steps.aws-creds.outcome == 'success' &&
           github.event.inputs.force-s3-cache-delete == 'true'
-        uses: vitorsgomes/s3-rm-action@master
+        uses: 3dwardCh3nG/delete-from-s3-action@v1
         with:
-          args: --recursive
+          aws_access_key_id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ env.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket_name: ${{ env.AWS_S3_BUCKET }}
+          aws_bucket_region: ${{ env.AWS_REGION }}
+          object_key_to_delete: ${{ env.PATH_TO_DELETE }}
 
       - name: "Upload cache object to S3"
         id: upload-cache
