@@ -195,6 +195,17 @@ jobs:
           repo: ${{ github.repository }}
           workflow: ${{ github.workflow }}
 
+      - name: "Debug"
+        env:
+          role-to-assume: ${{ secrets.AWS_GH_OIDC_ARN }}
+          aws-region: ${{ secrets.AWS_GH_OIDC_REGION }}      
+        run: |
+          echo ${{ steps.validate-org-workflow.outputs.is_valid }}
+          echo ${{ needs.check-renv.outputs.renv-needed }}
+          echo ${{ env.role-to-assume }}
+          echo ${{ env.aws-region }}
+        shell: bash
+
       - name: Configure AWS credentials via OIDC
         id: aws-creds
         env:
